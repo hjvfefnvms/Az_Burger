@@ -1,455 +1,318 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Az Burger | Premium Fast Food by Chef Azim</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>ToyStore - Children's Toy Shop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Preloader -->
-    <div class="loader">
-        <div class="burger-icon">🍔</div>
-        <h2>Az Burger</h2>
-        <p>Oliy Sifatli Menyu...</p>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <p>🎉 Free Express Shipping on Orders Over $50! Shop Now & Save Big! 🧸</p>
     </div>
 
-    <!-- Navigatsiya -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-area">
-                <img src="https://instagram.ftas2-2.fna.fbcdn.net/v/t51.82787-19/567273450_17848896132579122_6510272780160871131_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.ftas2-2.fna.fbcdn.net&_nc_cat=102&_nc_oc=Q6cZ2gH_NEMWy0478-sLqtwCCW_YT9zZS3nj5qQqSNrZdwPvuaN1dHZMJH-UtMPFd5dZPiuJm55_daIVE7ymmbgJVWsC&_nc_ohc=Uu6EeaXYpOUQ7kNvwHjDs0Q&_nc_gid=sDeWR7iOIuRv5sGPIwgiBw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AQD8eG3DKMOfQgUv7GwPRaG7sowTTcnysUIgPioZjJNo1Q&oe=6A570875&_nc_sid=7a9f4b"
-                    alt="Az Burger Logo" class="site-logo">
-                <span class="logo-text">AZ BURGER</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Asosiy</a></li>
-                <li><a href="#menu">Menyu</a></li>
-                <li><a href="#contacts">Aloqa</a></li>
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🎈</span> ToyStore
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="nav-contacts">
-                <a href="tel:+998977037473" class="phone-link"><i class="fas fa-phone"></i> 97 703-74-73</a>
+        </nav>
+        <div class="header-actions">
+            <button class="wishlist-btn" onclick="openWishlist()">❤️ (<span id="wishlist-count">0</span>)</button>
+            <button class="cart-btn" onclick="openCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="badge">✨ New Summer Collection 2026</span>
+            <h1>Magical Toys for <br><span>Happy Kids & Smiles</span></h1>
+            <p>Discover the ultimate collection of educational, safe, and ultra-fun toys designed to spark creativity
+                and endless joy for children of all ages.</p>
+            <div class="hero-btns">
+                <button class="primary-btn" onclick="scrollToSection('catalog')">Shop Collection</button>
+                <button class="secondary-btn" onclick="scrollToSection('categories')">Explore Categories</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>15K+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Safe & Certified</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9★</h3>
+                    <p>Average Rating</p>
+                </div>
             </div>
         </div>
-    </nav>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=900&q=80"
+                alt="Toys collection hero">
+        </div>
+    </section>
 
-    <!-- Hero Banner -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content" data-aos="zoom-in">
-            <h3 class="since">Since 2020</h3>
-            <h1>By Chef Azim</h1>
-            <p>Halol va oliy sifatli go'shtlardan tayyorlangan premium fast-food majmuasi.</p>
-            <div class="hero-btns">
-                <a href="#menu" class="btn-primary">Menyuni Ko'rish</a>
-                <a href="tel:+998996584454" class="btn-secondary"><i class="fas fa-motorcycle"></i> 99 658-44-54</a>
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">Shop By Categories</h2>
+        <p class="section-subtitle">Find the perfect toy tailored for every age and interest</p>
+        <div class="categories-grid">
+            <div class="category-card" onclick="filterCategory('educational')">
+                <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?auto=format&fit=crop&w=500&q=80"
+                    alt="Educational Toys">
+                <div class="cat-overlay">
+                    <h3>Educational Toys</h3>
+                    <p>Learning & Development</p>
+                </div>
+            </div>
+            <div class="category-card" onclick="filterCategory('plush')">
+                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=500&q=80"
+                    alt="Plush Toys">
+                <div class="cat-overlay">
+                    <h3>Plush Toys</h3>
+                    <p>Soft & Cuddly Friends</p>
+                </div>
+            </div>
+            <div class="category-card" onclick="filterCategory('vehicles')">
+                <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=500&q=80"
+                    alt="RC Cars">
+                <div class="cat-overlay">
+                    <h3>RC & Vehicles</h3>
+                    <p>Action & Speed</p>
+                </div>
+            </div>
+            <div class="category-card" onclick="filterCategory('puzzles')">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=500&q=80"
+                    alt="Puzzles">
+                <div class="cat-overlay">
+                    <h3>Puzzles & Games</h3>
+                    <p>Brain Teasers</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Menyu Bo'limi -->
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Premium Menyu</h2>
-                <div class="underline"></div>
-            </div>
+    <!-- Main Catalog Section -->
+    <section class="products" id="catalog">
+        <h2 class="section-title">Featured Best Sellers</h2>
+        <p class="section-subtitle">Handpicked highest-rated toys loved by kids everywhere</p>
 
-            <!-- Filter Tugmalari -->
-            <div class="filter-btns" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">Hammasi</button>
-                <button class="filter-btn" data-filter="burgers">Burgerlar</button>
-                <button class="filter-btn" data-filter="lavash-doner">Lavash & Doner</button>
-                <button class="filter-btn" data-filter="hotdogs">Hot-Doglar</button>
-                <button class="filter-btn" data-filter="snacks">Garnirlar</button>
-            </div><!-- Barcha 25 ta Taom Setkasi -->
-            <div class="menu-grid">
-
-                <!-- BURGERLAR -->
-                <div class="menu-item burgers" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80"
-                            alt="Gamburger"></div>
-                    <div class="item-info">
-                        <h3>Gamburger</h3>
-                        <div class="item-footer"><span class="price">30.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-badge">Sale -15%</div>
+                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=600&q=80"
+                    alt="Teddy Bear">
+                <h3>Fluffy Giant Teddy Bear</h3>
+                <div class="rating">⭐⭐⭐⭐⭐ (124)</div>
+                <div class="price-box">
+                    <span class="old-price">$29.99</span>
+                    <span class="price">$25.00</span>
                 </div>
-                <div class="menu-item burgers" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80"
-                            alt="Cheese Burger"></div>
-                    <div class="item-info">
-                        <h3>Cheese Burger</h3>
-                        <div class="item-footer"><span class="price">35.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item burgers" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80"
-                            alt="Double Burger"></div>
-                    <div class="item-info">
-                        <h3>Double Burger</h3>
-                        <div class="item-footer"><span class="price">40.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item burgers" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=500&q=80"
-                            alt="Double Cheese"></div>
-                    <div class="item-info">
-                        <h3>Double Cheese</h3>
-                        <div class="item-footer"><span class="price">45.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item burgers" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80"
-                            alt="Hot Let"></div>
-                    <div class="item-info">
-                        <h3>Hot Let</h3>
-                        <div class="item-footer"><span class="price">30.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-
-                <!-- LAVASH & DONER & XAGGI -->
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80"
-                            alt="Doner"></div>
-                    <div class="item-info">
-                        <h3>Doner Big</h3>
-                        <div class="item-footer"><span class="price">38.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80"
-                            alt="Doner Kichik"></div>
-                    <div class="item-info">
-                        <h3>Doner</h3>
-                        <div class="item-footer"><span class="price">34.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&w=500&q=80"
-                            alt="Az Doner"></div>
-                    <div class="item-info">
-                        <h3>Az Doner</h3>
-                        <div class="item-footer"><span class="price">40.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80"
-                            alt="Xaggi Big"></div>
-                    <div class="item-info">
-                        <h3>Xaggi Big</h3>
-                        <div class="item-footer"><span class="price">42.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80"
-                            alt="Xaggi"></div>
-                    <div class="item-info">
-                        <h3>Xaggi Kichik</h3>
-                        <div class="item-footer"><span class="price">38.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1562059390-a761a084768e?auto=format&fit=crop&w=500&q=80"
-                            alt="Lavash Big"></div>
-                    <div class="item-info">
-                        <h3>Lavash Big</h3>
-                        <div class="item-footer"><span class="price">42.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1562059390-a761a084768e?auto=format&fit=crop&w=500&q=80"
-                            alt="Lavash Kichik"></div>
-                    <div class="item-info">
-                        <h3>Lavash Kichik</h3>
-                        <div class="item-footer"><span class="price">38.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80"
-                            alt="Klab Sendvich"></div>
-                    <div class="item-info">
-                        <h3>Klab Sendvich</h3>
-                        <div class="item-footer"><span class="price">38.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1613514785940-daed07799d85?auto=format&fit=crop&w=500&q=80"
-                            alt="Doner Blyuda"></div>
-                    <div class="item-info">
-                        <h3>Doner Blyuda</h3>
-                        <div class="item-footer"><span class="price">45.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80"
-                            alt="Lavash Diet"></div>
-                    <div class="item-info">
-                        <h3>Lavash Diet</h3>
-                        <div class="item-footer"><span class="price">38.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-                <div class="menu-item lavash-doner" data-aos="fade-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80"
-                            alt="Klab Diet"></div>
-                    <div class="item-info">
-                        <h3>Klab Diet</h3>
-                        <div class="item-footer"><span class="price">35.000 UZS</span><button
-                                class="order-btn">Buyurtma</button></div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-item burgers" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80"
-                        alt="Hot Let"></div>
-                <div class="item-info">
-                    <h3>Hot Let</h3>
-                    <div class="item-footer"><span class="price">30.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
+                <div class="card-buttons">
+                    <button class="buy-btn" onclick="addToCart('Fluffy Giant Teddy Bear', 25.00)">Add to Cart</button>
+                    <button class="wish-btn" onclick="addToWishlist('Fluffy Giant Teddy Bear')">❤️</button>
                 </div>
             </div>
 
-            <!-- LAVASH & DONER & XAGGI -->
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80"
-                        alt="Doner"></div>
-                <div class="item-info">
-                    <h3>Doner Big</h3>
-                    <div class="item-footer"><span class="price">38.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-badge hot">Hot</div>
+                <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?auto=format&fit=crop&w=600&q=80"
+                    alt="Building Blocks">
+                <h3>Smart Wood Building Blocks</h3>
+                <div class="rating">⭐⭐⭐⭐⭐ (98)</div>
+                <div class="price-box">
+                    <span class="price">$18.50</span>
                 </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80"
-                        alt="Doner Kichik"></div>
-                <div class="item-info">
-                    <h3>Doner</h3>
-                    <div class="item-footer"><span class="price">34.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&w=500&q=80"
-                        alt="Az Doner"></div>
-                <div class="item-info">
-                    <h3>Az Doner</h3>
-                    <div class="item-footer"><span class="price">40.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80"
-                        alt="Xaggi Big"></div>
-                <div class="item-info">
-                    <h3>Xaggi Big</h3>
-                    <div class="item-footer"><span class="price">42.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80"
-                        alt="Xaggi"></div>
-                <div class="item-info">
-                    <h3>Xaggi Kichik</h3>
-                    <div class="item-footer"><span class="price">38.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1562059390-a761a084768e?auto=format&fit=crop&w=500&q=80"
-                        alt="Lavash Big"></div>
-                <div class="item-info">
-                    <h3>Lavash Big</h3>
-                    <div class="item-footer"><span class="price">42.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1562059390-a761a084768e?auto=format&fit=crop&w=500&q=80"
-                        alt="Lavash Kichik"></div>
-                <div class="item-info">
-                    <h3>Lavash Kichik</h3>
-                    <div class="item-footer"><span class="price">38.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80"
-                        alt="Klab Sendvich"></div>
-                <div class="item-info">
-                    <h3>Klab Sendvich</h3>
-                    <div class="item-footer"><span class="price">38.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item burgers" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80"
-                        alt="Double Burger"></div>
-                <div class="item-info">
-                    <h3>Double Burger</h3>
-                    <div class="item-footer"><span class="price">40.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item burgers" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=500&q=80"
-                        alt="Double Cheese"></div>
-                <div class="item-info">
-                    <h3>Double Cheese</h3>
-                    <div class="item-footer"><span class="price">45.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item burgers" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80"
-                        alt="Hot Let"></div>
-                <div class="item-info">
-                    <h3>Hot Let</h3>
-                    <div class="item-footer"><span class="price">30.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
+                <div class="card-buttons">
+                    <button class="buy-btn" onclick="addToCart('Smart Wood Building Blocks', 18.50)">Add to
+                        Cart</button>
+                    <button class="wish-btn" onclick="addToWishlist('Smart Wood Building Blocks')">❤️</button>
                 </div>
             </div>
 
-            <!-- LAVASH & DONER & XAGGI -->
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80"
-                        alt="Doner"></div>
-                <div class="item-info">
-                    <h3>Doner Big</h3>
-                    <div class="item-footer"><span class="price">38.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=600&q=80"
+                    alt="Toy Car">
+                <h3>High-Speed Turbo RC Car</h3>
+                <div class="rating">⭐⭐⭐⭐☆ (76)</div>
+                <div class="price-box">
+                    <span class="price">$45.00</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="buy-btn" onclick="addToCart('High-Speed Turbo RC Car', 45.00)">Add to Cart</button>
+                    <button class="wish-btn" onclick="addToWishlist('High-Speed Turbo RC Car')">❤️</button>
                 </div>
             </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80"
-                        alt="Doner Kichik"></div>
-                <div class="item-info">
-                    <h3>Doner</h3>
-                    <div class="item-footer"><span class="price">34.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80"
+                    alt="Puzzle Game">
+                <h3>Colorful Kids Puzzle Set</h3>
+                <div class="rating">⭐⭐⭐⭐⭐ (210)</div>
+                <div class="price-box">
+                    <span class="price">$12.99</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="buy-btn" onclick="addToCart('Colorful Kids Puzzle Set', 12.99)">Add to Cart</button>
+                    <button class="wish-btn" onclick="addToWishlist('Colorful Kids Puzzle Set')">❤️</button>
                 </div>
             </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?auto=format&fit=crop&w=500&q=80"
-                        alt="Az Doner"></div>
-                <div class="item-info">
-                    <h3>Az Doner</h3>
-                    <div class="item-footer"><span class="price">40.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80"
-                        alt="Xaggi Big"></div>
-                <div class="item-info">
-                    <h3>Xaggi Big</h3>
-                    <div class="item-footer"><span class="price">42.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=500&q=80"
-                        alt="Xaggi"></div>
-                <div class="item-info">
-                    <h3>Xaggi Kichik</h3>
-                    <div class="item-footer"><span class="price">38.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            <div class="menu-item lavash-doner" data-aos="fade-up">
-                <div class="item-img"><img
-                        src="https://images.unsplash.com/photo-1562059390-a761a084768e?auto=format&fit=crop&w=500&q=80"
-                        alt="Lavash Big"></div>
-                <div class="item-info">
-                    <h3>Lavash Big</h3>
-                    <div class="item-footer"><span class="price">42.000 UZS</span><button
-                            class="order-btn">Buyurtma</button></div>
-                </div>
-            </div>
-            https://images.unsplash.com/photo-1562059390-a761a084768e?auto=format&fit=crop&w=500&q=80<!-- Footer -->
-            <footer id="contacts" class="footer">
-                <div class="container">
-                    <div class="footer-grid">
-                        <div class="footer-info">
-                            <h2>AZ BURGER</h2>
-                            <p class="halol-badge"><i class="fas fa-check-circle"></i> 100% HALOL</p>
-                        </div>
-                        <div class="footer-links">
-                            <h4>Buyurtma raqamlari</h4>
-                            <p><a href="tel:+998977037473" style="color: #f4e4bc; text-decoration: none;">97
-                                    703-74-73</a></p>
-                            <p><a href="tel:+998996584454" style="color: #f4e4bc; text-decoration: none;">99
-                                    658-44-54</a></p>
-                        </div>
-                        <div class="footer-social">
-                            <h4>Biz ijtimoiy tarmoqlarda</h4>
-                            <div class="icons">
-                                <a href="https://instagram.com/az_burger" target="_blank"><i
-                                        class="fab fa-instagram"></i> @az_burger</a>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="copy">&copy; 2026 Az Burger. Barcha huquqlar himoyalangan.</p>
-                </div>
-            </footer>
 
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-            <script src="script.js"></script>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80"
+                    alt="Activity Set">
+                <h3>Creative Art Painting Kit</h3>
+                <div class="rating">⭐⭐⭐⭐⭐ (64)</div>
+                <div class="price-box">
+                    <span class="price">$22.00</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="buy-btn" onclick="addToCart('Creative Art Painting Kit', 22.00)">Add to Cart</button>
+                    <button class="wish-btn" onclick="addToWishlist('Creative Art Painting Kit')">❤️</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80"
+                    alt="Musical Toy">
+                <h3>Interactive Musical Xylophone</h3>
+                <div class="rating">⭐⭐⭐⭐⭐ (142)</div>
+                <div class="price-box">
+                    <span class="price">$15.75</span>
+                </div>
+                <div class="card-buttons">
+                    <button class="buy-btn" onclick="addToCart('Interactive Musical Xylophone', 15.75)">Add to
+                        Cart</button>
+                    <button class="wish-btn" onclick="addToWishlist('Interactive Musical Xylophone')">❤️</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner Section -->
+    <section class="promo-banner">
+        <div class="promo-content">
+            <h2>Special Weekend Discount!</h2>
+            <p>Get up to 40% off on all educational toys and puzzle sets. Limited time offer for active parents.</p>
+            <button class="primary-btn" onclick="scrollToSection('catalog')">Claim Discount Now</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+                alt="Kids playing safely">
+        </div>
+        <div class="about-text">
+            <h2>Why Kids & Parents Choose ToyStore Every Day?</h2>
+            <p>We believe that play is an essential foundation for childhood growth. Our toys are meticulously curated
+                to foster creativity, logical thinking, fine motor skills, and pure happiness.</p>
+            <ul class="about-list">
+                <li>✅ 100% non-toxic, eco-friendly certified materials</li>
+                <li>✅ Rigorous safety testing for children of all ages</li>
+                <li>✅ Fast, reliable worldwide door-to-door delivery</li>
+            </ul>
+            <button class="primary-btn" onclick="scrollToSection('catalog')">Start Shopping</button>
+        </div>
+    </section> <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <h2 class="section-title">What Parents Say</h2>
+        <p class="section-subtitle">Real feedback from our loyal customers worldwide</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p>"The quality of the wooden blocks is exceptional! My 5-year-old son plays with them for hours every
+                    single day. Highly recommend!"</p>
+                <h4>Sarah Jenkins</h4>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="review-card">
+                <p>"Fast delivery and wonderful customer service. The giant teddy bear is so soft and well-made. Thank
+                    you ToyStore!"</p>
+                <h4>Michael Brown</h4>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+            </div>
+            <div class="review-card">
+                <p>"Great prices and amazing variety. It's my go-to shop for birthday gifts for my nieces and nephews."
+                </p>
+                <h4>Elena Rostova</h4>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Notification / Cart Popup -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Notification</h2>
+            <p id="modal-text">Action completed successfully!</p>
+            <button class="close-modal" onclick="closeModal()">OK, Continue</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>🧸 ToyStore</h3>
+                <p>Bringing magic, smiles, and high-quality educational toys to homes around the globe since 2026.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#catalog">Catalog</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Support</h4>
+                <ul>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Store Policy</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get special offers and free giveaways.</p>
+                <div class="newsletter-box">
+                    <input type="email" placeholder="Enter your email">
+                    <button onclick="subscribeNewsletter()">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ToyStore. All rights reserved. Built with high fidelity video-matching layout.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
 </body>
 
 </html>
